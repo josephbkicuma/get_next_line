@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jquicuma <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jquicuma <jquicuma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 12:29:45 by jquicuma          #+#    #+#             */
-/*   Updated: 2024/07/09 15:07:47 by jquicuma         ###   ########.fr       */
+/*   Updated: 2024/07/10 16:27:53 by jquicuma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,12 @@ char	*ft_strjoin(const char *s1, const char *s2)
 		joined_str[len++] = s2[count++];
 	joined_str[len] = '\0';
 	return (joined_str);
+}
+
+int	ft_strchr(char *str, int c)
+{
+	while (*str)
+		if (*str++ == (char)c)
+			return (1);
+	return (0);
 }
