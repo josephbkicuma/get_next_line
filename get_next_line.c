@@ -6,7 +6,7 @@
 /*   By: jquicuma <jquicuma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 12:24:13 by jquicuma          #+#    #+#             */
-/*   Updated: 2024/07/11 12:00:02 by jquicuma         ###   ########.fr       */
+/*   Updated: 2024/07/11 12:26:43 by jquicuma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,15 +36,35 @@ char	*read_file(int fd, char *text_read)
 	return (text_read);
 }
 
-/*char	*get_rest_text(char *text)
+char	*get_rest_text(char *text)
 {
-	while (*text && *text !=  '\n')
-		text++;
-	if (*text == '\n')
-		text++;
-	return (&*text);
+	int		i;
+	char	*temp;
+	int		count;
+	int		j;
+
+	i = 0;
+	while (text[i] && text[i] !=  '\n')
+		i++;
+	if (text[i] == '\n')
+		i++;
+	count = 0;
+	j = i;
+	while (text[i])
+	{
+		i++;
+		count++;
+	}
+	temp = ft_calloc(sizeof(char), count + 1);
+	i = 0;
+	while (text[j])
+		temp[i++] = text[j++];
+	temp[i] = '\0';
+	free(text);
+	return (temp);
 }
 
+/*
 char	*get_line(char *text)
 {
 	int		i;
@@ -63,14 +83,17 @@ char	*get_line(char *text)
 	line[i++] = '\n';
 	line[i] = '\0';
 	return (line);
-}
-*/
+}*/
+
 char	*get_next_line(int fd)
 {
 	static char	*text = {0};
 	char		*line;
-
+	
 	text = read_file(fd, text);
+	//printf("%s\n\n\n", text);
+	text = get_rest_text(text);
+	//printf("Resto == %s\n", text);
 	return (text);
 }
 
@@ -81,12 +104,12 @@ int	main(void)
 	
 	fd = open("file", O_RDONLY);
 	str = get_next_line(fd);
-	printf("%s", str);
+	//printf("%s", str);
 	free(str);
 	str = get_next_line(fd);
-	printf("--%s", str);
+	//printf("--%s", str);
 	free(str);
 	str = get_next_line(fd);
-	printf("--%s", str);
+	//printf("--%s", str);
 	free(str);
 }
