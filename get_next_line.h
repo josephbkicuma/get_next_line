@@ -6,7 +6,7 @@
 /*   By: jquicuma <jquicuma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 11:29:05 by jquicuma          #+#    #+#             */
-/*   Updated: 2024/07/11 14:40:17 by jquicuma         ###   ########.fr       */
+/*   Updated: 2024/07/11 18:11:17 by jquicuma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,5 @@
 # include <fcntl.h>
 # include <stdio.h>
 # include <string.h>
-
-int     ft_strchr(char *str, int c);
-void    *ft_calloc(size_t size, size_t count);
-char    *ft_strjoin(char *s1, char *s2);
-char    *get_next_line(int fd);
 
 #endif
