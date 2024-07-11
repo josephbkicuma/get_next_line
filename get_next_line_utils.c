@@ -6,7 +6,7 @@
 /*   By: jquicuma <jquicuma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 12:29:45 by jquicuma          #+#    #+#             */
-/*   Updated: 2024/07/11 10:39:29 by jquicuma         ###   ########.fr       */
+/*   Updated: 2024/07/11 12:51:04 by jquicuma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,11 @@
 void	*ft_calloc(size_t size, size_t count)
 {
 	void	*str;
-	size_t	i;
 	char	*s;
 
 	str = malloc(size * count);
 	if (!str)
 		return (NULL);
-	i = 0;
 	s = str;
 	while (count--)
 		s[count] = '\0';
