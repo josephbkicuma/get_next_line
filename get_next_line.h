@@ -6,7 +6,7 @@
 /*   By: jquicuma <jquicuma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 11:29:05 by jquicuma          #+#    #+#             */
-/*   Updated: 2024/07/18 08:06:03 by jquicuma         ###   ########.fr       */
+/*   Updated: 2024/07/18 10:00:16 by jquicuma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define GET_NEXT_LINE_H
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 3
+#  define BUFFER_SIZE 1
 # endif
 
 # include <unistd.h>
@@ -24,8 +24,9 @@
 # include <stdio.h>
 
 size_t  len(const char *str);
-char    *ft_strjoin(const char *s1, const char *s2)
-char    *read_file(int fd);
+char    *read_file(int fd, char *text_t);
 void    *ft_calloc(size_t size, size_t count);
+char    *ft_strjoin(char *s1, char *s2);
+char    *ft_strchr_n(char *str);
 
 #endif

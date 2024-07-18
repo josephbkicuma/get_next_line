@@ -6,7 +6,7 @@
 /*   By: jquicuma <jquicuma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 12:29:45 by jquicuma          #+#    #+#             */
-/*   Updated: 2024/07/17 07:57:41 by jquicuma         ###   ########.fr       */
+/*   Updated: 2024/07/18 10:04:53 by jquicuma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ size_t	len(const char *str)
 	size_t	i;
 
 	i = 0;
-	while (str[i++]);
+	while (str[i])
+		i++;
 	return (i);
 }
 
@@ -33,13 +34,13 @@ void	*ft_calloc(size_t size, size_t count)
 	return (ptr);
 }
 
-char	*ft_strjoin(const char *s1, const char *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*joined;
 	size_t	i;
 	size_t	j;
 
-	joined = ft_calloc(sizeof(char), len(s1) + len(s2) + 1);
+	joined = malloc(sizeof(char) * (len(s1) + len(s2) + 1));
 	if (!joined)
 		return (NULL);
 	i = 0;
@@ -48,8 +49,26 @@ char	*ft_strjoin(const char *s1, const char *s2)
 		joined[j++] = s1[i++];
 	i = 0;
 	while (s2[i])
-		joined[j++] = s1[i++];
+		joined[j++] = s2[i++];
 	joined[j] = '\0';
 	free(s1);
 	return (joined);
+}
+char	*ft_strchr_n(char *str)
+{
+	size_t	i;
+	char	*temp;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == '\n')
+		{
+			temp = &str[++i];
+			str = temp;
+			return (str);
+		}
+		i++;
+	}
+	return (NULL);
 }
