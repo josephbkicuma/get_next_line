@@ -6,7 +6,7 @@
 /*   By: jquicuma <jquicuma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 11:29:05 by jquicuma          #+#    #+#             */
-/*   Updated: 2024/07/18 10:00:16 by jquicuma         ###   ########.fr       */
+/*   Updated: 2024/07/18 11:26:37 by jquicuma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@ char    *read_file(int fd, char *text_t);
 void    *ft_calloc(size_t size, size_t count);
 char    *ft_strjoin(char *s1, char *s2);
 char    *ft_strchr_n(char *str);
+char    *get_next_line(int fd);
 
 #endif
