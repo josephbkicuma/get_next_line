@@ -6,7 +6,7 @@
 /*   By: jquicuma <jquicuma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 12:24:13 by jquicuma          #+#    #+#             */
-/*   Updated: 2024/07/18 10:25:38 by jquicuma         ###   ########.fr       */
+/*   Updated: 2024/07/18 11:22:23 by jquicuma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,11 @@ char	*get_line(char *text)
 		i++;
 	line = ft_calloc(sizeof(char), i + 2);
 	i = 0;
+	if (!text[0])
+	{
+		free(line);
+		return (NULL);
+	}
 	while (text[i] && text[i] != '\n')
 	{
 		line[i] = text[i];
@@ -61,24 +66,25 @@ char	*get_next_line(int fd)
 	
 	if (!text)
 		text = read_file(fd, text);
-	else
-	{
-		line = get_line(text);
-		text = ft_strchr_n(text);
-	}
+	line = get_line(text);
+	text = ft_strchr_n(text);
+	if (!line)
+		return (NULL);
 	return (line);
 }
 
 int	main(void)
 {
-	//char	*str;
-
+	char	*str;
 	/*str = get_line("Joseph   \nKicuma");
 	printf("%s", str);
 	free(str);*/
-	int	fd = open("file", O_RDONLY);
-	for (int i = 0; i < 1; i++)
-		printf("%s\n\n\n\n", get_next_line(fd));
+	int	fd = open("file2", O_RDONLY);
+	while ((str = get_next_line(fd)) != NULL)
+	{
+		printf("%s", str);
+		free(str);
+	}
 	/*str = ft_calloc(1, 1);
 	str = ft_strjoin(str, "Joseph");
 	str = ft_strjoin(str, " Kicuma");*/
