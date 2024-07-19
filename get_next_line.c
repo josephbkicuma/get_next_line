@@ -6,7 +6,7 @@
 /*   By: jquicuma <jquicuma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 12:24:13 by jquicuma          #+#    #+#             */
-/*   Updated: 2024/07/18 11:45:59 by jquicuma         ###   ########.fr       */
+/*   Updated: 2024/07/19 09:45:32 by jquicuma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,9 @@ char	*get_line(char *text)
 	{
 		line[i] = text[i];
 		i++;
-		if (text[i] == '\n')
-			line[i] = text[i];
 	}
+	if (text[i] == '\n')
+		line[i] = text[i];
 	return (line);
 }
 
@@ -69,14 +69,15 @@ char	*get_next_line(int fd)
 		return (NULL);
 	return (line);
 }
-
+/*
 int	main(void)
 {
 	char	*str;
-	int	fd = open("file2", O_RDONLY);
+	int	fd = open("b", O_RDONLY);
 	while ((str = get_next_line(fd)) != NULL)
 	{
 		printf("%s", str);
 		free(str);
 	}
 }
+*/
