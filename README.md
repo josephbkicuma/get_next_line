@@ -1,32 +1,38 @@
 # Get Next Line
 
-## Overview
+The "Get Next Line" project is an implementation of the `get_next_line` function, which allows reading one line at a time from a file efficiently. This is a practical example using basic file and memory handling techniques in C.
 
-The **Get Next Line** project involves writing a function in C that reads a line from a file descriptor. This function is useful for handling file input in a systematic and efficient manner.
+## Project Structure
 
-## Table of Contents
+The project consists of three main files:
 
-- [Description](#description)
-- [Function Prototype](#function-prototype)
-- [Files](#files)
-- [Parameters](#parameters)
-- [Return Value](#return-value)
-- [External Functions Used](#external-functions-used)
-- [Implementation Details](#implementation-details)
-- [Compilation](#compilation)
-- [Makefile](#makefile)
-- [Bonus](#bonus)
-- [Norms and Rules](#norms-and-rules)
-- [Testing](#testing)
-- [Forbidden Actions](#forbidden-actions)
-- [Notes](#notes)
+1. **`get_next_line.h`**: Header file containing function declarations and necessary definitions for the project.
+2. **`get_next_line.c`**: Implementation of the `get_next_line` function, including file reading and text splitting into lines.
+3. **`get_next_line_utils.c`**: Utility functions such as `ft_calloc` and `ft_strjoin` that assist with memory and string manipulation.
 
-## Description
+## Files
 
-The `get_next_line` function reads a single line from a file descriptor, returning it as a string. It is designed to handle both standard input and file input seamlessly.
+### `get_next_line.h`
 
-## Function Prototype
+This is the project's header file. It defines the `BUFFER_SIZE` constant, includes necessary libraries, and declares functions used in the project.
 
-```c
-char *get_next_line(int fd);
+### `get_next_line.c`
+
+This file contains the implementation of the following functions:
+- **`char **ft_split(char *str)`**: Splits a string into lines and returns an array of strings.
+- **`char *read_all_file(int fd)`**: Reads the entire content of the file and returns it as a string.
+- **`char *get_next_line(int fd)`**: Returns the next line from the specified file descriptor.
+
+### `get_next_line_utils.c`
+
+This file implements utility functions:
+- **`void *ft_calloc(size_t size, size_t count)`**: Allocates memory and initializes it to zero.
+- **`char *ft_strjoin(char *s1, char *s2)`**: Concatenates two strings and returns the result.
+
+## Compilation
+
+To compile the project, you can use a command like the following:
+
+```bash
+gcc -Wall -Wextra -Werror -o get_next_line get_next_line.c get_next_line_utils.c
 
