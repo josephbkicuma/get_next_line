@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kicuma <kicuma@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jquicuma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/09 11:29:05 by jquicuma          #+#    #+#             */
-/*   Updated: 2024/07/25 11:49:46 by kicuma           ###   ########.fr       */
+/*   Created: 2024/07/27 10:29:53 by jquicuma          #+#    #+#             */
+/*   Updated: 2024/07/27 12:15:15 by jquicuma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,12 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
-//Apenas para Teste, remover
 # include <stdio.h>
-# include <string.h>
 
-size_t  len(const char *str);
-void    *ft_calloc(size_t size, size_t count);
-char    *ft_strjoin(char *s1, char *s2);
-char    *read_file(int fd);
-char    *get_line(char *text);
-char    *get_next_line(int fd);
-char    *ft_strchr_n(char *text);
+void	*ft_calloc(size_t size, size_t count);
+char	*read_all_file(int fd);
+char	*ft_strjoin(char *s1, char *s2);
+char	**ft_split(char *str);
+char	*get_next_line(int fd);
 
 #endif

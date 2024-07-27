@@ -3,80 +3,52 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kicuma <kicuma@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jquicuma <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/09 12:29:45 by jquicuma          #+#    #+#             */
-/*   Updated: 2024/07/25 13:51:34 by kicuma           ###   ########.fr       */
+/*   Created: 2024/07/27 10:43:36 by jquicuma          #+#    #+#             */
+/*   Updated: 2024/07/27 13:03:14 by jquicuma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-
-size_t	len(const char *str)
-{
-	size_t	i;
-
-	i = 0;
-	while (str[i++]);
-	return (i);
-}
-
 void	*ft_calloc(size_t size, size_t count)
 {
-	char	*str;
+	unsigned char	*ptr;
+	void			*result;
+	size_t			i;
 
-	str = malloc(size * count);
-	if (!str)
+	result = malloc(size * count);
+	if (!result)
 		return (NULL);
-	while (count--)
-		str[count] = 0;
-	return (str);
+	i = 0;
+	ptr = result;
+	while (i++ < count)
+		*ptr++ = 0;
+	return (result);
 }
 
 char	*ft_strjoin(char *s1, char *s2)
 {
-	char	*joined;
+	char	*result;
+	char	*temp;
 	size_t	i;
 	size_t	j;
-	
-	joined = ft_calloc(sizeof(char), len(s1) + len(s2) + 1);
-	if (!joined)
+
+	if (!s1 || !s2)
 		return (NULL);
 	i = 0;
 	j = 0;
-	while (s1[i])
-		joined[j++] = s1[i++];
-	i = 0;
-	while (s2[i])
-		joined[j++] = s2[i++];
-	free(s1);
-	return (joined);
-}
-char	*ft_strchr_n(char *text)
-{
-	size_t	i;
-	char	*temp;
-	
-	i = 0;
-	if (!text)
-	{
-		free (text);
-		return (NULL);
-	}
-	while (text[i] && text[i] != '\n')
+	while (s1[i++])
 		i++;
-	if (text[i] == '\n')
-		i++;
-	if (i > 0)
-	{
-		temp = ft_calloc(1, 1);
-		temp = ft_strjoin(temp, &text[i]);
-		free(text);
-		text = temp;
-		return (text);
-	}
-	else
-		return (NULL);
+	while (s2[j])
+		j++;
+	result = ft_calloc(sizeof(char), i + j + 1);
+	temp = result;
+	while (*s1)
+		*result++ = *s1++;
+	while (*s2)
+		*result++ = *s2++;
+	*result = '\0';
+	return (temp);
 }
-
